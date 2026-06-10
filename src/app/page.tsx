@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Header from '@/components/Header'
 import ReviewsCarousel from '@/components/ReviewsCarousel'
 import FleetForm from '@/components/FleetForm'
+import FAQAccordion from '@/components/FAQAccordion'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -38,9 +39,9 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Do I need an appointment for a semi-truck alignment?', acceptedAnswer: { '@type': 'Answer', text: 'No appointment is needed for most single and tandem axle jobs. Just drive in during business hours. Fleet customers should call ahead so we can line up the bays.' } },
+    { '@type': 'Question', name: 'Do I need to call before bringing my truck in?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — please call ahead before arriving. We schedule alignment appointments to ensure a bay and technician are ready for your rig.' } },
     { '@type': 'Question', name: 'How long does a semi-truck wheel alignment take?', acceptedAnswer: { '@type': 'Answer', text: 'Most alignments are completed in 90 minutes or less. You receive a printed before/after readout for every job.' } },
-    { '@type': 'Question', name: 'What equipment do you use for truck alignments?', acceptedAnswer: { '@type': 'Answer', text: 'We use Hunter and Bee Line laser alignment systems — the same precision equipment trusted by major commercial fleets, calibrated and certified.' } },
+    { '@type': 'Question', name: 'What equipment do you use for truck alignments?', acceptedAnswer: { '@type': 'Answer', text: 'We use Hunter and Bee Line laser alignment systems — calibrated and certified, trusted by major commercial fleets.' } },
     { '@type': 'Question', name: 'Do you offer fleet pricing?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We offer volume rates and PO billing for fleet customers. Contact us to set up an account with a dedicated maintenance schedule.' } },
   ],
 }
@@ -50,10 +51,8 @@ function TopBar() {
   return (
     <div className="bg-accent text-white text-xs font-body">
       <div className="wrap flex items-center justify-between h-9">
-        <div className="flex items-center gap-4">
-          <span className="hidden sm:inline">Mon–Fri 7:00a–6:00p · Sat 8:00a–2:00p</span>
-          <span className="hidden lg:inline text-white/70">Drive-in · Drive-out · No appointment needed</span>
-        </div>
+        <span className="hidden sm:inline">Mon–Fri 7:00a–6:00p · Sat 8:00a–2:00p</span>
+        <span className="sm:hidden">Mon–Sat · Call to Schedule</span>
         <div className="flex items-center gap-4">
           <span className="hidden sm:inline">1234 Frontage Rd, Your City, ST</span>
           <span className="font-semibold">(555) 123-4567</span>
@@ -63,50 +62,53 @@ function TopBar() {
   )
 }
 
-/* ── Hero ─────────────────────────────────────────────────── */
+/* ── Hero — text left, image right ───────────────────────── */
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen bg-ink overflow-hidden flex items-center">
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1721055248349-e398619459cb?fm=jpg&q=70&w=1600&auto=format&fit=crop"
-          alt="Semi-truck on an alignment rack"
-          fill
-          priority
-          className="object-cover object-center opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/88 to-ink/30" />
-        {/* Subtle orange glow */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/10 to-transparent pointer-events-none" />
-      </div>
-
-      <div className="relative z-10 wrap pt-32 pb-24 w-full">
-        <div className="max-w-2xl">
-          <span className="section-eyebrow block mb-4">Semi-Truck Wheel Alignment Specialists</span>
-          <h1 className="font-head text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.04] mb-6">
-            Precision Alignments for{' '}
-            <span className="text-accent">1, 2 &amp; 3-Axle</span> Rigs
-          </h1>
-          <p className="text-white/65 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
-            Laser-guided alignments that stop premature tire wear, pull, and fuel waste — done right the first time, so you&apos;re back on the road fast.
-          </p>
-          <div className="flex flex-wrap gap-4 mb-12">
-            <a href="tel:5551234567" className="btn-primary">Call Now ›</a>
-            <a href="#pricing" className="btn-ghost">View Pricing</a>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/55">
-            {['Drive-in, drive-out', 'Hunter & Bee Line equipment', '25+ years of experience'].map((t) => (
-              <span key={t} className="flex items-center gap-2">
-                <span className="text-accent font-bold">✓</span> {t}
-              </span>
-            ))}
+    <section id="top" className="min-h-screen flex flex-col lg:flex-row">
+      {/* Text panel */}
+      <div className="bg-ink flex-1 flex items-center pt-24 pb-16 lg:py-0">
+        <div className="wrap w-full py-8 lg:py-0">
+          <div className="lg:max-w-[560px]">
+            <h1 className="font-head text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.04] mb-6">
+              Precision Alignments for{' '}
+              <span className="text-accent">1, 2 &amp; 3-Axle</span> Rigs
+            </h1>
+            <p className="text-white/65 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+              Laser-guided alignments that stop premature tire wear, pull, and fuel waste — done right the first time, so you&apos;re back on the road fast.
+            </p>
+            <div className="flex flex-wrap gap-4 mb-12">
+              <a href="tel:5551234567" className="btn-primary">Call Now ›</a>
+              <a href="#pricing" className="btn-ghost">View Pricing</a>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/55">
+              {[
+                'Call ahead to schedule',
+                'Hunter & Bee Line equipment',
+                '25+ years of experience',
+              ].map((t) => (
+                <span key={t} className="flex items-center gap-2">
+                  <span className="text-accent font-bold">✓</span> {t}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/25 text-xs font-body pointer-events-none">
-        <span className="tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-8 bg-white/20" />
+      {/* Image panel */}
+      <div className="relative h-72 sm:h-96 lg:h-auto lg:w-[48%] flex-shrink-0 overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80"
+          alt="White semi-truck on the highway"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        {/* Blend edge into dark panel on desktop */}
+        <div className="absolute inset-y-0 left-0 w-24 hidden lg:block bg-gradient-to-r from-ink to-transparent pointer-events-none" />
+        {/* Orange accent bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent" />
       </div>
     </section>
   )
@@ -116,61 +118,52 @@ function Hero() {
 const services = [
   {
     title: 'Single Axle',
-    desc: 'Day cabs and single-drive axle configurations',
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-10 h-10">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
         <circle cx="32" cy="46" r="11" />
         <circle cx="32" cy="46" r="3.5" fill="currentColor" stroke="none" />
         <line x1="32" y1="35" x2="32" y2="14" />
         <line x1="20" y1="14" x2="44" y2="14" />
       </svg>
     ),
-    featured: true,
   },
   {
     title: 'Tandem (2-Axle)',
-    desc: 'Standard tractor with dual drive axles',
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-10 h-10">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
         <circle cx="22" cy="44" r="9" />
         <circle cx="42" cy="44" r="9" />
         <line x1="22" y1="35" x2="42" y2="35" />
         <line x1="14" y1="35" x2="50" y2="35" />
       </svg>
     ),
-    featured: false,
   },
   {
     title: 'Tri-Axle (3-Axle)',
-    desc: 'Heavy haul and multi-axle configurations',
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-10 h-10">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
         <circle cx="16" cy="44" r="8" />
         <circle cx="32" cy="44" r="8" />
         <circle cx="48" cy="44" r="8" />
         <line x1="12" y1="34" x2="52" y2="34" />
       </svg>
     ),
-    featured: false,
   },
   {
     title: 'Tractor + Trailer',
-    desc: 'Full combination unit alignment',
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-10 h-10">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
         <rect x="8" y="20" width="26" height="18" rx="2" />
         <rect x="36" y="14" width="20" height="24" rx="2" />
         <circle cx="18" cy="46" r="5" />
         <circle cx="46" cy="46" r="5" />
       </svg>
     ),
-    featured: false,
   },
   {
     title: 'Steer Axle & Caster',
-    desc: 'Front axle, toe, camber, and caster correction',
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-10 h-10">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
         <circle cx="32" cy="32" r="13" />
         <line x1="32" y1="6" x2="32" y2="19" />
         <line x1="32" y1="45" x2="32" y2="58" />
@@ -178,19 +171,16 @@ const services = [
         <line x1="40" y1="28" x2="51" y2="22" />
       </svg>
     ),
-    featured: false,
   },
   {
     title: 'Suspension Check',
-    desc: 'Full geometry and wear inspection',
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-10 h-10">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
         <path d="M14 22h36" />
         <path d="M20 22v8a12 12 0 0 0 24 0v-8" />
         <circle cx="32" cy="46" r="6" />
       </svg>
     ),
-    featured: false,
   },
 ]
 
@@ -199,8 +189,7 @@ function Services() {
     <section id="services" className="py-24 bg-white">
       <div className="wrap">
         <div className="text-center mb-14">
-          <span className="section-eyebrow">Services</span>
-          <h2 className="font-head text-4xl md:text-5xl font-bold text-ink mt-3 mb-4">
+          <h2 className="font-head text-4xl md:text-5xl font-bold text-ink mb-4">
             What We Align
           </h2>
           <p className="text-ink-2 max-w-xl mx-auto text-lg leading-relaxed">
@@ -208,21 +197,16 @@ function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {services.map((s) => (
             <div
               key={s.title}
-              className={`group p-8 rounded-2xl border transition-all duration-200 hover:shadow-md cursor-default ${
-                s.featured
-                  ? 'border-accent bg-accent-soft'
-                  : 'border-line bg-white hover:border-accent/50 hover:bg-accent-soft/30'
-              }`}
+              className="group p-8 rounded-2xl border border-line bg-white hover:border-accent hover:shadow-sm transition-all duration-200 cursor-default"
             >
-              <div className={`mb-5 transition-colors ${s.featured ? 'text-accent' : 'text-ink-3 group-hover:text-accent'}`}>
+              <div className="text-ink-3 group-hover:text-accent transition-colors duration-200 mb-5">
                 {s.icon}
               </div>
-              <h4 className="font-head font-bold text-xl text-ink mb-2">{s.title}</h4>
-              <p className="text-ink-3 text-sm leading-relaxed">{s.desc}</p>
+              <h4 className="font-head font-bold text-xl text-ink">{s.title}</h4>
             </div>
           ))}
         </div>
@@ -277,8 +261,7 @@ function Pricing() {
     <section id="pricing" className="py-24 bg-surface-2">
       <div className="wrap">
         <div className="text-center mb-14">
-          <span className="section-eyebrow">Pricing</span>
-          <h2 className="font-head text-4xl md:text-5xl font-bold text-ink mt-3 mb-4">
+          <h2 className="font-head text-4xl md:text-5xl font-bold text-ink mb-4">
             Straightforward Pricing
           </h2>
           <p className="text-ink-2 max-w-xl mx-auto text-lg leading-relaxed">
@@ -362,13 +345,10 @@ function Equipment() {
     <section className="py-20 bg-ink">
       <div className="wrap">
         <div className="text-center mb-10">
-          <span className="font-head font-semibold text-xs tracking-[0.18em] uppercase text-white/30">
-            Equipment
-          </span>
-          <h2 className="font-head text-3xl md:text-4xl font-bold text-white mt-3">
+          <h2 className="font-head text-3xl md:text-4xl font-bold text-white">
             Industry-Leading Alignment Equipment
           </h2>
-          <p className="text-white/40 text-sm mt-2">Calibrated and certified — the same systems major fleets trust</p>
+          <p className="text-white/35 text-sm mt-2">Calibrated and certified — the same systems major fleets trust</p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5">
@@ -388,7 +368,7 @@ function Equipment() {
 /* ── Why Us ───────────────────────────────────────────────── */
 function WhyUs() {
   const points = [
-    { title: 'Drive-In, Drive-Out', desc: 'No appointment needed for most jobs' },
+    { title: 'Call Ahead to Schedule', desc: 'We confirm your bay and tech before you arrive' },
     { title: 'Certified Technicians', desc: 'Trained on Hunter & Bee Line systems' },
     { title: 'Fleet & Owner-Operator', desc: 'Volume rates and PO billing available' },
     { title: 'Printed Readouts', desc: 'Before & after specs, every time' },
@@ -398,7 +378,6 @@ function WhyUs() {
     <section id="whyus" className="py-24 bg-white">
       <div className="wrap grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <span className="section-eyebrow block mb-4">Why Turning Point</span>
           <h2 className="font-head text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
             Decades of Precision.{' '}
             <span className="text-accent">Trucks Back</span> on the Road Faster.
@@ -424,17 +403,13 @@ function WhyUs() {
           </a>
         </div>
 
-        {/* Photo placeholder — replace with your shop/tech photo */}
-        <div className="relative rounded-2xl overflow-hidden h-80 lg:h-[460px] bg-surface-3 flex flex-col items-center justify-center border border-line">
-          <div className="text-center text-ink-3 pointer-events-none select-none">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12 mx-auto mb-3 opacity-40">
-              <rect x="4" y="14" width="56" height="40" rx="4" />
-              <circle cx="32" cy="34" r="10" />
-              <circle cx="32" cy="34" r="4" fill="currentColor" stroke="none" opacity=".4" />
-              <path d="M22 14l4-6h12l4 6" />
-            </svg>
-            <p className="text-sm opacity-50">Add shop or technician photo</p>
-          </div>
+        <div className="relative rounded-2xl overflow-hidden h-80 lg:h-[460px]">
+          <Image
+            src="https://images.unsplash.com/photo-1616432043562-3671ea2e5242?auto=format&fit=crop&w=800&q=80"
+            alt="White freight semi-truck"
+            fill
+            className="object-cover"
+          />
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent" />
         </div>
       </div>
@@ -484,12 +459,11 @@ function Contact() {
     <section id="contact" className="py-24 bg-white">
       <div className="wrap grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
-          <span className="section-eyebrow block mb-4">Contact</span>
           <h2 className="font-head text-4xl md:text-5xl font-bold text-ink mb-4">
-            Bring It In or Give Us a Call
+            Give Us a Call Before Coming In
           </h2>
           <p className="text-ink-2 text-lg mb-8">
-            No appointment needed for most single and tandem jobs. Fleets — call ahead and we&apos;ll line up the bays.
+            Call ahead and we&apos;ll have a bay and tech ready for your rig. Fleet customers — we can line up multiple trucks in sequence.
           </p>
 
           <div className="mb-8 border border-line rounded-xl overflow-hidden">
@@ -522,7 +496,6 @@ function Contact() {
             ))}
           </div>
 
-          {/* Map placeholder */}
           <div className="mt-6 rounded-xl h-32 bg-surface-3 border border-line flex items-center justify-center">
             <span className="text-ink-3 text-sm opacity-60">📍 Map — add a screenshot here</span>
           </div>
@@ -556,9 +529,7 @@ function Footer() {
             <h5 className="font-head font-bold text-xs uppercase tracking-widest mb-5 text-white/35">Services</h5>
             <ul className="space-y-2.5 text-sm text-white/55">
               {['Single-Axle Alignment', 'Tandem (2-Axle)', 'Tri-Axle (3-Axle)', 'Trailer Alignment', 'Suspension Check'].map((s) => (
-                <li key={s}>
-                  <a href="#pricing" className="hover:text-accent transition-colors">{s}</a>
-                </li>
+                <li key={s}><a href="#pricing" className="hover:text-accent transition-colors">{s}</a></li>
               ))}
             </ul>
           </div>
@@ -567,9 +538,7 @@ function Footer() {
             <h5 className="font-head font-bold text-xs uppercase tracking-widest mb-5 text-white/35">Company</h5>
             <ul className="space-y-2.5 text-sm text-white/55">
               {['About Us', 'Why Turning Point', 'Fleet Services', 'Contact Us'].map((s) => (
-                <li key={s}>
-                  <a href="#" className="hover:text-accent transition-colors">{s}</a>
-                </li>
+                <li key={s}><a href="#" className="hover:text-accent transition-colors">{s}</a></li>
               ))}
             </ul>
           </div>
@@ -584,35 +553,6 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
-}
-
-/* ── FAQ ──────────────────────────────────────────────────── */
-const faqs = [
-  { q: 'Do I need an appointment for a semi-truck alignment?', a: 'No appointment needed for most single and tandem axle jobs. Just drive in during business hours. Fleet customers should call ahead so we can line up the bays.' },
-  { q: 'How long does a semi-truck wheel alignment take?', a: 'Most alignments are completed in 90 minutes or less. Every job includes a printed before/after readout so you can see exactly what was corrected.' },
-  { q: 'What alignment equipment do you use?', a: 'We run Hunter and Bee Line laser alignment systems — calibrated, certified, and trusted by major commercial fleets.' },
-  { q: 'Do you offer fleet pricing?', a: 'Yes. Volume rates, PO billing, and dedicated maintenance schedules are available for fleet accounts. Call us or submit your email above to get started.' },
-]
-
-function FAQ() {
-  return (
-    <section className="py-20 bg-white border-t border-line">
-      <div className="wrap max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="section-eyebrow">FAQ</span>
-          <h2 className="font-head text-4xl font-bold text-ink mt-3">Common Questions</h2>
-        </div>
-        <div className="space-y-4">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="border border-line rounded-xl p-6">
-              <h3 className="font-head font-bold text-ink text-lg mb-2">{faq.q}</h3>
-              <p className="text-ink-2 leading-relaxed">{faq.a}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   )
 }
 
@@ -634,7 +574,7 @@ export default function Home() {
         <ReviewsCarousel />
         <Contact />
         <FleetForm />
-        <FAQ />
+        <FAQAccordion />
       </main>
       <Footer />
     </>

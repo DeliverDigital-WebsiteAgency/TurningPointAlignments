@@ -43,8 +43,7 @@ export default function ReviewsCarousel() {
     <section id="reviews" className="bg-surface-2 py-24">
       <div className="wrap">
         <div className="text-center mb-14">
-          <span className="section-eyebrow">Reviews</span>
-          <h2 className="font-head text-4xl md:text-5xl font-bold text-ink mt-3">
+          <h2 className="font-head text-4xl md:text-5xl font-bold text-ink">
             What Drivers &amp; Fleets Say
           </h2>
         </div>

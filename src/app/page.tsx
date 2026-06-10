@@ -17,10 +17,16 @@ const jsonLd = {
   address: {
     '@type': 'PostalAddress',
     streetAddress: '1234 Frontage Rd',
-    addressLocality: 'Your City',
-    addressRegion: 'ST',
-    postalCode: '00000',
+    addressLocality: 'Springfield',
+    addressRegion: 'MO',
+    postalCode: '65804',
   },
+  areaServed: [
+    { '@type': 'City', name: 'Springfield, MO' },
+    { '@type': 'Road', name: 'I-44' },
+    { '@type': 'Road', name: 'US-417' },
+    { '@type': 'Road', name: 'US-65' },
+  ],
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:00', closes: '18:00' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '08:00', closes: '14:00' },
@@ -70,7 +76,7 @@ function Hero() {
 
           {/* Text column — hero-anim staggers each direct child on load */}
           <div className="hero-anim">
-            <span className="section-eyebrow">Semi-Truck Wheel Alignment Specialists</span>
+            <span className="section-eyebrow">Springfield, MO &mdash; Semi-Truck Wheel Alignment Specialists</span>
 
             <h1 className="font-head text-[clamp(34px,4.6vw,58px)] font-bold text-ink leading-[1.04] mt-4">
               Precision Alignments for{' '}

@@ -40,7 +40,7 @@ export default function Header() {
         <div className="wrap flex items-center justify-between h-9">
           <span>Mon–Fri 7:00a–6:00p · Sat 8:00a–2:00p</span>
           <div className="flex items-center gap-5">
-            <span className="hidden md:inline">1234 Frontage Rd, Your City, ST</span>
+            <span className="hidden md:inline">Springfield, MO &nbsp;·&nbsp; I-44 &nbsp;·&nbsp; Hwy 417 &nbsp;·&nbsp; Hwy 65</span>
             <span className="font-semibold">(555) 123-4567</span>
           </div>
         </div>
@@ -48,15 +48,15 @@ export default function Header() {
 
       {/* Main nav bar — always white */}
       <div className={`bg-white border-b border-line transition-shadow duration-300 ${scrolled ? 'shadow-md' : ''}`}>
-        <div className="wrap flex items-center justify-between h-16">
+        <div className="wrap flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" aria-label="Turning Point Alignments home" className="flex-shrink-0">
             <Image
               src="/logo.png"
               alt="Turning Point Alignments"
-              width={56}
-              height={56}
-              className="w-14 h-14 object-contain"
+              width={72}
+              height={72}
+              className="w-[68px] h-[68px] object-contain"
             />
           </Link>
 

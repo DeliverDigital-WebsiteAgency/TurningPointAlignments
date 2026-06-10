@@ -54,9 +54,9 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Turning Point Alignments"
-              width={44}
-              height={44}
-              className="w-11 h-11 object-contain"
+              width={56}
+              height={56}
+              className="w-14 h-14 object-contain"
             />
           </Link>
 

@@ -5,23 +5,27 @@ import { useState } from 'react'
 const faqs = [
   {
     q: 'Do I need to call before bringing my truck in?',
-    a: 'Yes — please call ahead before arriving. We schedule alignment appointments to ensure a bay and technician are ready for your rig. Single and tandem jobs typically get same-day or next-day slots.',
+    a: 'Yes — call ahead before arriving. We schedule alignment appointments so a bay and certified technician are ready when you pull in. Most single and tandem slots are available same-day or next-day.',
   },
   {
-    q: 'How long does a semi-truck wheel alignment take?',
-    a: 'Most alignments are completed in 90 minutes or less once your truck is on the rack. Every job includes a printed before/after readout so you can see exactly what was corrected.',
+    q: 'How much does a semi-truck alignment cost?',
+    a: 'Single-axle alignments start at $129. Tandem (2-axle) start at $199. Tri-axle (3-axle) start at $269. Every alignment includes a laser diagnostic printout before and after — no guesswork, no surprises. Call us for your exact rate.',
+  },
+  {
+    q: 'How long does the alignment take?',
+    a: 'Most alignments are completed in 90 minutes or less once your truck is on the rack. We print a before/after readout for every job so you can see exactly what was corrected and have documentation for your records.',
+  },
+  {
+    q: 'How often should a semi-truck be aligned?',
+    a: 'Most fleets check alignment every 50,000–100,000 miles or after any suspension work, hard curb impact, or tire replacement. If you\'re seeing uneven tire wear, a pull to one side, or the steering wheel is off-center — don\'t wait for the mileage mark.',
   },
   {
     q: 'What alignment equipment do you use?',
-    a: 'We run Hunter and Bee Line laser alignment systems — calibrated, certified, and trusted by major commercial fleets. These are the same precision tools the industry\'s top shops rely on.',
+    a: 'We run Hunter and Bee Line laser alignment systems — the same precision equipment trusted by major fleet operations, calibrated and certified to manufacturer spec. General shops use lighter equipment designed for passenger cars. We don\'t.',
   },
   {
-    q: 'Do you offer fleet pricing or accounts?',
-    a: 'Yes. We offer volume rates, PO billing, and dedicated maintenance schedules for fleet customers. Call us or drop your email in the fleet section below and we\'ll get a plan together.',
-  },
-  {
-    q: 'What configurations do you align?',
-    a: 'We align single-axle day cabs, tandem (2-axle) tractors, tri-axle (3-axle) rigs, tractor-trailer combinations, steer axles with caster correction, and full suspension checks.',
+    q: 'Do you work with commercial fleets?',
+    a: 'Yes. We offer volume pricing, PO billing, and scheduled maintenance programs for fleet accounts. Drop your email in the section below or call us directly to set up an account.',
   },
 ]
 
@@ -40,7 +44,9 @@ export default function FAQAccordion() {
             return (
               <div
                 key={i}
-                className={`border rounded-xl overflow-hidden transition-colors ${isOpen ? 'border-accent' : 'border-line'}`}
+                className={`border rounded-xl overflow-hidden transition-colors duration-200 ${
+                  isOpen ? 'border-accent' : 'border-line'
+                }`}
               >
                 <button
                   className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
@@ -49,16 +55,20 @@ export default function FAQAccordion() {
                 >
                   <span className="font-head font-bold text-ink text-base md:text-lg">{faq.q}</span>
                   <span
-                    className={`text-accent text-2xl font-bold flex-shrink-0 leading-none transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}
+                    className={`text-accent text-2xl font-bold flex-shrink-0 leading-none transition-transform duration-200 ${
+                      isOpen ? 'rotate-45' : ''
+                    }`}
                   >
                     +
                   </span>
                 </button>
                 <div
-                  className={`grid transition-all duration-300 ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+                  className={`grid transition-all duration-300 ${
+                    isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                  }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-ink-2 leading-relaxed">{faq.a}</p>
+                    <p className="px-6 pb-6 text-ink-2 leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
               </div>

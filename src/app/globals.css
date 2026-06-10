@@ -43,3 +43,44 @@
     @apply max-w-[1180px] mx-auto px-7;
   }
 }
+
+/* ── Animations ───────────────────────────────────────────── */
+
+/* Hero: stagger direct children on page load */
+@keyframes heroUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFade {
+  from { opacity: 0; transform: scale(1.03); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.hero-anim > * {
+  animation: heroUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-anim > *:nth-child(1) { animation-delay: 0.06s; }
+.hero-anim > *:nth-child(2) { animation-delay: 0.18s; }
+.hero-anim > *:nth-child(3) { animation-delay: 0.30s; }
+.hero-anim > *:nth-child(4) { animation-delay: 0.44s; }
+.hero-anim > *:nth-child(5) { animation-delay: 0.54s; }
+.hero-anim > *:nth-child(6) { animation-delay: 0.62s; }
+
+.hero-img-anim {
+  animation: heroFade 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+/* Scroll: fade-up when entering viewport (via AnimateIn component) */
+.will-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.will-fade.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}

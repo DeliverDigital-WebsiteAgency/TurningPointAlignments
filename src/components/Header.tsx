@@ -17,78 +17,128 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Close menu on resize past md breakpoint
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 768) setMenuOpen(false) }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-ink/95 backdrop-blur-md shadow-xl' : 'bg-transparent'
-      }`}
-    >
-      <div className="wrap flex items-center justify-between h-16 py-3">
-        <Link href="/" aria-label="Turning Point Alignments home">
-          <Image
-            src="/logo.png"
-            alt="Turning Point Alignments"
-            width={44}
-            height={44}
-            className="w-11 h-11 object-contain"
-          />
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="font-head font-semibold text-xs tracking-[0.14em] uppercase text-white/60 hover:text-white transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden md:flex items-center gap-4">
-          <div className="text-right">
-            <div className="text-white/40 text-xs font-body leading-none mb-1">Call Now</div>
-            <div className="text-white font-head font-bold text-sm">(555) 123-4567</div>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Orange info strip — desktop only, collapses on scroll */}
+      <div
+        className={`hidden sm:block bg-accent text-white text-xs font-body overflow-hidden transition-all duration-300 ease-in-out ${
+          scrolled ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'
+        }`}
+      >
+        <div className="wrap flex items-center justify-between h-9">
+          <span>Mon–Fri 7:00a–6:00p · Sat 8:00a–2:00p</span>
+          <div className="flex items-center gap-5">
+            <span className="hidden md:inline">1234 Frontage Rd, Your City, ST</span>
+            <span className="font-semibold">(555) 123-4567</span>
           </div>
-          <a href="tel:5551234567" className="btn-primary py-3 px-5">
-            Call ›
-          </a>
         </div>
-
-        <button
-          className="md:hidden p-2 space-y-1.5"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-6 h-0.5 bg-white transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-all ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-        </button>
       </div>
 
-      {menuOpen && (
-        <div className="md:hidden bg-ink/98 backdrop-blur-md border-t border-white/10 px-7 py-6 space-y-1">
+      {/* Main nav bar — always white */}
+      <div className={`bg-white border-b border-line transition-shadow duration-300 ${scrolled ? 'shadow-md' : ''}`}>
+        <div className="wrap flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" aria-label="Turning Point Alignments home" className="flex-shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Turning Point Alignments"
+              width={44}
+              height={44}
+              className="w-11 h-11 object-contain"
+            />
+          </Link>
+
+          {/* Desktop nav links */}
+          <nav className="hidden md:flex items-center gap-7 lg:gap-9">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="font-head font-semibold text-xs tracking-[0.14em] uppercase text-ink-2 hover:text-accent transition-colors duration-150"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center gap-3 lg:gap-4 flex-shrink-0">
+            <div className="text-right hidden lg:block">
+              <div className="text-ink-3 text-xs leading-none mb-0.5">Call Now</div>
+              <div className="text-ink font-head font-bold text-sm">(555) 123-4567</div>
+            </div>
+            <a href="tel:5551234567" className="btn-primary py-3 px-5 text-xs">
+              Call ›
+            </a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-lg hover:bg-surface-2 transition-colors flex-shrink-0"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            <span
+              className={`block w-5 h-[2px] bg-ink rounded-full transition-all duration-200 origin-center ${
+                menuOpen ? 'rotate-45 translate-y-[7px]' : ''
+              }`}
+            />
+            <span
+              className={`block w-5 h-[2px] bg-ink rounded-full transition-all duration-200 ${
+                menuOpen ? 'opacity-0' : ''
+              }`}
+            />
+            <span
+              className={`block w-5 h-[2px] bg-ink rounded-full transition-all duration-200 origin-center ${
+                menuOpen ? '-rotate-45 -translate-y-[7px]' : ''
+              }`}
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown menu — animated */}
+      <div
+        className={`md:hidden bg-white border-b border-line overflow-hidden transition-all duration-300 ease-in-out ${
+          menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <nav className="px-7 pt-2 pb-5">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="block font-head font-semibold text-sm tracking-[0.14em] uppercase text-white/60 hover:text-white py-3 border-b border-white/5"
+              className="flex items-center justify-between font-head font-semibold text-sm tracking-[0.1em] uppercase text-ink-2 hover:text-accent py-3.5 border-b border-line last:border-0 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
+              <span className="text-ink-3 text-lg leading-none">›</span>
             </Link>
           ))}
-          <a href="tel:5551234567" className="btn-primary w-full text-center mt-4 block">
-            Call (555) 123-4567 ›
-          </a>
-        </div>
-      )}
+          <div className="pt-4">
+            <a
+              href="tel:5551234567"
+              className="btn-primary w-full justify-center text-sm"
+              onClick={() => setMenuOpen(false)}
+            >
+              Call (555) 123-4567 ›
+            </a>
+          </div>
+        </nav>
+      </div>
     </header>
   )
 }

@@ -46,69 +46,75 @@ const faqJsonLd = {
   ],
 }
 
-/* ── Top info bar ─────────────────────────────────────────── */
-function TopBar() {
-  return (
-    <div className="bg-accent text-white text-xs font-body">
-      <div className="wrap flex items-center justify-between h-9">
-        <span className="hidden sm:inline">Mon–Fri 7:00a–6:00p · Sat 8:00a–2:00p</span>
-        <span className="sm:hidden">Mon–Sat · Call to Schedule</span>
-        <div className="flex items-center gap-4">
-          <span className="hidden sm:inline">1234 Frontage Rd, Your City, ST</span>
-          <span className="font-semibold">(555) 123-4567</span>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 /* ── Hero — text left, image right ───────────────────────── */
 function Hero() {
   return (
-    <section id="top" className="min-h-screen flex flex-col lg:flex-row">
-      {/* Text panel */}
-      <div className="bg-ink flex-1 flex items-center pt-24 pb-16 lg:py-0">
-        <div className="wrap w-full py-8 lg:py-0">
-          <div className="lg:max-w-[560px]">
-            <h1 className="font-head text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.04] mb-6">
+    <section id="top" className="pb-14 pt-24 sm:pt-28 overflow-hidden">
+      <div className="wrap">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.04fr] gap-10 items-center">
+          {/* Text column */}
+          <div>
+            <span className="section-eyebrow">Semi-Truck Wheel Alignment Specialists</span>
+            <h1 className="font-head text-[clamp(34px,4.6vw,58px)] font-bold text-ink leading-[1.04] mt-4">
               Precision Alignments for{' '}
               <span className="text-accent">1, 2 &amp; 3-Axle</span> Rigs
             </h1>
-            <p className="text-white/65 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+            <p className="text-ink-2 text-lg leading-relaxed max-w-[480px] mt-5">
               Laser-guided alignments that stop premature tire wear, pull, and fuel waste — done right the first time, so you&apos;re back on the road fast.
             </p>
-            <div className="flex flex-wrap gap-4 mb-12">
-              <a href="tel:5551234567" className="btn-primary">Call Now ›</a>
-              <a href="#pricing" className="btn-ghost">View Pricing</a>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3.5 items-center mt-8">
+              <a
+                href="tel:5551234567"
+                className="inline-flex items-center gap-2.5 bg-accent hover:bg-accent-dark text-white font-head font-semibold text-[15px] px-[22px] py-[13px] rounded-[40px] transition-all duration-200 whitespace-nowrap"
+              >
+                Call Now
+                <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-white/20 text-[13px] leading-none">›</span>
+              </a>
+              <a
+                href="#pricing"
+                className="inline-flex items-center bg-transparent text-ink font-head font-semibold text-[15px] px-[22px] py-[13px] rounded-[40px] border border-line hover:bg-surface-2 transition-all duration-200 whitespace-nowrap"
+              >
+                View Pricing
+              </a>
             </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/55">
+
+            {/* Trust items */}
+            <div className="flex flex-wrap gap-x-6 gap-y-3 mt-8">
               {[
-                'Call ahead to schedule',
+                'Drive-in, drive-out',
                 'Hunter & Bee Line equipment',
                 '25+ years of experience',
               ].map((t) => (
-                <span key={t} className="flex items-center gap-2">
-                  <span className="text-accent font-bold">✓</span> {t}
+                <span key={t} className="flex items-center gap-2.5 text-[13.5px] text-ink-2 font-medium">
+                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-accent-soft text-accent-dark text-xs font-bold flex-shrink-0">
+                    ✓
+                  </span>
+                  {t}
                 </span>
               ))}
             </div>
+
+            {/* Slide dots */}
+            <div className="flex items-center gap-2 mt-7">
+              <span className="w-[22px] h-2 bg-accent rounded-[5px] inline-block" />
+              <span className="w-2 h-2 bg-surface-3 rounded-full inline-block" />
+              <span className="w-2 h-2 bg-surface-3 rounded-full inline-block" />
+            </div>
+          </div>
+
+          {/* Image column */}
+          <div className="relative h-[260px] sm:h-[360px] lg:h-[430px] rounded-[18px] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1721055248349-e398619459cb?fm=jpg&q=70&w=1400&auto=format&fit=crop"
+              alt="Semi-truck on the alignment rack"
+              fill
+              priority
+              className="object-cover object-center"
+            />
           </div>
         </div>
-      </div>
-
-      {/* Image panel */}
-      <div className="relative h-72 sm:h-96 lg:h-auto lg:w-[48%] flex-shrink-0 overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80"
-          alt="White semi-truck on the highway"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        {/* Blend edge into dark panel on desktop */}
-        <div className="absolute inset-y-0 left-0 w-24 hidden lg:block bg-gradient-to-r from-ink to-transparent pointer-events-none" />
-        {/* Orange accent bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent" />
       </div>
     </section>
   )
@@ -428,9 +434,9 @@ function Stats() {
   return (
     <section className="bg-accent py-16">
       <div className="wrap">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x divide-white/20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-4 lg:gap-x-0 lg:divide-x lg:divide-white/20">
           {stats.map((s) => (
-            <div key={s.label} className="text-center pl-8 first:pl-0">
+            <div key={s.label} className="text-center lg:px-8">
               <div className="font-head font-bold text-5xl md:text-6xl text-white mb-2">{s.n}</div>
               <div className="text-white/65 text-xs uppercase tracking-widest font-body">{s.label}</div>
             </div>
@@ -513,7 +519,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
           <div>
             <div className="mb-4">
-              <Image src="/logo.png" alt="Turning Point Alignments" width={52} height={52} className="w-13 h-13 object-contain" />
+              <Image src="/logo.png" alt="Turning Point Alignments" width={52} height={52} className="w-12 h-12 object-contain" />
             </div>
             <p className="text-white/45 text-sm leading-relaxed mb-4 max-w-xs">
               Semi-truck wheel alignment specialists. One focus, done right — 1, 2 &amp; 3-axle rigs, trailers, and fleets.
@@ -562,7 +568,6 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <TopBar />
       <Header />
       <main>
         <Hero />

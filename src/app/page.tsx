@@ -16,10 +16,10 @@ const jsonLd = {
   email: 'service@turningpointalignments.com',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '1234 Frontage Rd',
+    streetAddress: '2305 N Belcrest Ave',
     addressLocality: 'Springfield',
     addressRegion: 'MO',
-    postalCode: '65804',
+    postalCode: '65803',
   },
   areaServed: [
     { '@type': 'City', name: 'Springfield, MO' },
@@ -35,9 +35,9 @@ const jsonLd = {
     '@type': 'OfferCatalog',
     name: 'Alignment Services',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Single-Axle Alignment' }, price: '129', priceCurrency: 'USD' },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tandem (2-Axle) Alignment' }, price: '199', priceCurrency: 'USD' },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tri-Axle (3-Axle) Alignment' }, price: '269', priceCurrency: 'USD' },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Single-Axle Alignment' }, price: '165', priceCurrency: 'USD' },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tandem (2-Axle) Alignment' }, price: '200', priceCurrency: 'USD' },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tri-Axle (3-Axle) Alignment' }, price: '285', priceCurrency: 'USD' },
     ],
   },
 }
@@ -47,7 +47,7 @@ const faqJsonLd = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'Do I need to call before bringing my truck in?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — call ahead before arriving. We schedule alignment appointments so a bay and certified technician are ready when you pull in.' } },
-    { '@type': 'Question', name: 'How much does a semi-truck alignment cost?', acceptedAnswer: { '@type': 'Answer', text: 'Single-axle starts at $129. Tandem (2-axle) starts at $199. Tri-axle (3-axle) starts at $269. Every alignment includes a laser diagnostic printout before and after.' } },
+    { '@type': 'Question', name: 'How much does a semi-truck alignment cost?', acceptedAnswer: { '@type': 'Answer', text: 'Single-axle is $165. Tandem (2-axle) is $200. Tri-axle (3-axle) is $285. Flat-rate pricing — every alignment includes a laser diagnostic printout before and after.' } },
     { '@type': 'Question', name: 'How long does a semi-truck wheel alignment take?', acceptedAnswer: { '@type': 'Answer', text: 'Most alignments complete in 90 minutes or less. You receive a printed before/after readout for every job.' } },
     { '@type': 'Question', name: 'How often should a semi-truck be aligned?', acceptedAnswer: { '@type': 'Answer', text: 'Most fleets check alignment every 50,000–100,000 miles or after suspension work, a hard impact, or tire replacement.' } },
     { '@type': 'Question', name: 'What equipment do you use for truck alignments?', acceptedAnswer: { '@type': 'Answer', text: 'We use Hunter and Bee Line laser alignment systems — calibrated and certified, trusted by major commercial fleets.' } },
@@ -106,8 +106,8 @@ function Hero() {
             <div className="flex flex-wrap gap-x-6 gap-y-3 mt-8">
               {[
                 'Call ahead to schedule',
-                'Hunter & Bee Line equipment',
-                '25+ years of experience',
+                'Hunter alignment equipment',
+                '20+ years of experience',
               ].map((t) => (
                 <span key={t} className="flex items-center gap-2.5 text-[13.5px] text-ink-2 font-medium">
                   <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-accent-soft text-accent text-xs font-bold flex-shrink-0">
@@ -118,11 +118,6 @@ function Hero() {
               ))}
             </div>
 
-            <div className="flex items-center gap-2 mt-7">
-              <span className="w-[22px] h-2 bg-accent rounded-[5px] inline-block" />
-              <span className="w-2 h-2 bg-surface-3 rounded-full inline-block" />
-              <span className="w-2 h-2 bg-surface-3 rounded-full inline-block" />
-            </div>
           </div>
 
           {/* Image column — subtle scale-in on load */}
@@ -145,69 +140,28 @@ function Hero() {
 const services = [
   {
     title: 'Single Axle',
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
-        <circle cx="32" cy="46" r="11" />
-        <circle cx="32" cy="46" r="3.5" fill="currentColor" stroke="none" />
-        <line x1="32" y1="35" x2="32" y2="14" />
-        <line x1="20" y1="14" x2="44" y2="14" />
-      </svg>
-    ),
+    desc: 'One drive axle. Day cabs, straight trucks, and vocational rigs.',
   },
   {
     title: 'Tandem (2-Axle)',
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
-        <circle cx="22" cy="44" r="9" />
-        <circle cx="42" cy="44" r="9" />
-        <line x1="22" y1="35" x2="42" y2="35" />
-        <line x1="14" y1="35" x2="50" y2="35" />
-      </svg>
-    ),
+    desc: 'Steer axle plus both drive axles on a standard tractor. Our most common job.',
+    badge: 'Most Common',
   },
   {
     title: 'Tri-Axle (3-Axle)',
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
-        <circle cx="16" cy="44" r="8" />
-        <circle cx="32" cy="44" r="8" />
-        <circle cx="48" cy="44" r="8" />
-        <line x1="12" y1="34" x2="52" y2="34" />
-      </svg>
-    ),
+    desc: 'Heavy-haul and spread-axle configurations. All three axles set in one visit.',
   },
   {
     title: 'Tractor + Trailer',
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
-        <rect x="8" y="20" width="26" height="18" rx="2" />
-        <rect x="36" y="14" width="20" height="24" rx="2" />
-        <circle cx="18" cy="46" r="5" />
-        <circle cx="46" cy="46" r="5" />
-      </svg>
-    ),
+    desc: 'Full rig — tractor and trailer measured together to correct thrust angle.',
   },
   {
     title: 'Steer Axle & Caster',
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
-        <circle cx="32" cy="32" r="13" />
-        <line x1="32" y1="6" x2="32" y2="19" />
-        <line x1="32" y1="45" x2="32" y2="58" />
-        <line x1="13" y1="42" x2="24" y2="36" />
-        <line x1="40" y1="28" x2="51" y2="22" />
-      </svg>
-    ),
+    desc: 'Front-end only. Truck pulling left or right, steering wander, or feathering tires.',
   },
   {
-    title: 'Suspension Check',
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
-        <path d="M14 22h36" />
-        <path d="M20 22v8a12 12 0 0 0 24 0v-8" />
-        <circle cx="32" cy="46" r="6" />
-      </svg>
-    ),
+    title: 'Suspension Inspection',
+    desc: 'We check for worn bushings, bent tie rods, and loose components before they knock your alignment off again.',
   },
 ]
 
@@ -221,19 +175,22 @@ function Services() {
               What We Align
             </h2>
             <p className="text-ink-2 max-w-xl mx-auto text-lg leading-relaxed">
-              Every alignment uses calibrated Hunter and Bee Line equipment — operated by technicians who work on heavy-duty trucks exclusively, not passenger cars.
+              We work on heavy-duty trucks only — not passenger cars, not light trucks. Hunter alignment machine on every job.
             </p>
           </div>
         </AnimateIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {services.map((s, i) => (
             <AnimateIn key={s.title} delay={i * 70}>
-              <div className="group p-8 rounded-2xl border border-line bg-white hover:border-accent hover:shadow-sm transition-all duration-200 cursor-default h-full">
-                <div className="text-ink-3 group-hover:text-accent transition-colors duration-200 mb-5">
-                  {s.icon}
-                </div>
-                <h4 className="font-head font-bold text-xl text-ink">{s.title}</h4>
+              <div className="relative group p-7 rounded-2xl border border-line bg-white hover:border-accent hover:shadow-sm transition-all duration-200 cursor-default h-full">
+                {s.badge && (
+                  <span className="absolute -top-3 left-5 bg-accent text-white text-[10px] font-head font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    {s.badge}
+                  </span>
+                )}
+                <h4 className="font-head font-bold text-lg text-ink mb-2">{s.title}</h4>
+                <p className="text-ink-2 text-sm leading-relaxed">{s.desc}</p>
               </div>
             </AnimateIn>
           ))}
@@ -249,7 +206,7 @@ const pricingCards = [
     axles: 1,
     title: 'Single-Axle',
     sub: 'Day cabs · single drive axle',
-    price: '$129',
+    price: '$165',
     features: ['Full toe, camber & caster set', 'Before/after laser readout', 'Tire wear inspection'],
     highlight: false,
     badge: null,
@@ -258,7 +215,7 @@ const pricingCards = [
     axles: 2,
     title: 'Tandem (2-Axle)',
     sub: 'Tractor with dual drive axles',
-    price: '$199',
+    price: '$200',
     features: [
       'Steer + both drive axles set',
       'Thrust-angle correction',
@@ -272,7 +229,7 @@ const pricingCards = [
     axles: 3,
     title: 'Tri-Axle (3-Axle)',
     sub: 'Heavy haul & multi-axle rigs',
-    price: '$269',
+    price: '$285',
     features: [
       'All three axles aligned to spec',
       'Full thrust & geometry check',
@@ -338,7 +295,7 @@ function Pricing() {
                   </span>
                 </div>
                 <p className={`text-xs mb-8 ${card.highlight ? 'text-white/30' : 'text-ink-3'}`}>
-                  Placeholder — contact us for your exact rate
+                  Flat rate · no hidden fees
                 </p>
 
                 <ul className="space-y-3 mb-8 flex-1">
@@ -371,28 +328,35 @@ function Pricing() {
 
 /* ── Equipment ────────────────────────────────────────────── */
 function Equipment() {
-  const brands = ['HUNTER', 'BEE LINE', 'JOSAM', 'HOFMANN', 'BENDIX', 'MERITOR']
+  const details = [
+    { label: 'Before & after printout', desc: 'Every job produces a printed report showing specs before and after — keep it for your records.' },
+    { label: 'Calibrated to spec', desc: 'The machine is maintained and calibrated. You get accurate numbers, not approximations.' },
+    { label: 'Built for commercial trucks', desc: 'Hunter\'s commercial system handles the geometry of heavy-duty rigs — not adapted from a car alignment tool.' },
+  ]
   return (
     <section className="py-20 bg-ink">
       <div className="wrap">
         <AnimateIn>
-          <div className="text-center mb-10">
-            <h2 className="font-head text-3xl md:text-4xl font-bold text-white">
-              Industry-Leading Alignment Equipment
-            </h2>
-            <p className="text-white/35 text-sm mt-2">Calibrated and certified — the same systems major fleets depend on</p>
-          </div>
-        </AnimateIn>
-
-        <AnimateIn delay={100}>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5">
-            {brands.map((brand) => (
-              <div key={brand} className="flex items-center justify-center py-8 px-4 bg-ink hover:bg-white/5 transition-colors">
-                <span className="font-head font-bold text-white/35 hover:text-accent text-xs tracking-[0.2em] text-center transition-colors uppercase">
-                  {brand}
-                </span>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 items-center">
+            <div>
+              <span className="font-head font-semibold text-xs tracking-[0.18em] uppercase text-accent mb-3 block">Equipment</span>
+              <h2 className="font-head text-3xl md:text-4xl font-bold text-white mb-4">
+                Hunter Alignment System
+              </h2>
+              <p className="text-white/50 text-base leading-relaxed">
+                We run one machine and we run it well. The Hunter commercial alignment system is the standard in truck alignment — every reading is documented and handed to you when the job is done.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {details.map((d) => (
+                <AnimateIn key={d.label} delay={100}>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                    <div className="font-head font-bold text-white text-sm mb-2">{d.label}</div>
+                    <div className="text-white/45 text-xs leading-relaxed">{d.desc}</div>
+                  </div>
+                </AnimateIn>
+              ))}
+            </div>
           </div>
         </AnimateIn>
       </div>
@@ -415,11 +379,11 @@ function WhyUs() {
         <AnimateIn>
           <div>
             <h2 className="font-head text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
-              25 Years Doing{' '}
+              20+ Years Doing{' '}
               <span className="text-accent">One Thing</span> Well.
             </h2>
             <p className="text-ink-2 text-lg leading-relaxed mb-8">
-              General shops align passenger cars. We align semi-trucks. That specialization means our technicians recognize misalignment patterns — uneven tire wear, thrust-angle drift, caster pull — that a generalist misses. The right tools, the right experience, every time.
+              General shops align passenger cars. We align semi-trucks. Our technicians know what uneven tire wear, thrust-angle drift, and caster pull look like on a heavy rig — because that's all they work on.
             </p>
             <div className="space-y-4 mb-10">
               {points.map((p) => (
@@ -459,8 +423,8 @@ function WhyUs() {
 /* ── Stats ────────────────────────────────────────────────── */
 function Stats() {
   const stats = [
-    { n: '25+', label: 'Years specializing' },
-    { n: '40k+', label: 'Rigs aligned' },
+    { n: '20+', label: 'Years specializing' },
+    { n: '10,000+', label: 'Alignments completed' },
     { n: '90 min', label: 'Avg turnaround' },
     { n: '~3%', label: 'Fuel savings from alignment' },
   ]
@@ -482,6 +446,60 @@ function Stats() {
   )
 }
 
+/* ── Finding the Family ───────────────────────────────────── */
+function FindingTheFamily() {
+  return (
+    <section className="py-24 bg-ink text-white">
+      <div className="wrap max-w-4xl mx-auto">
+        <AnimateIn>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-center">
+            <div>
+              <span className="font-head font-semibold text-xs tracking-[0.18em] uppercase text-accent mb-4 block">
+                Driven by Purpose
+              </span>
+              <h2 className="font-head text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                Every Alignment Supports{' '}
+                <span className="text-accent">Families in Recovery</span>
+              </h2>
+              <p className="text-white/60 text-lg leading-relaxed mb-6">
+                When you bring your rig to Turning Point, your service directly funds{' '}
+                <a
+                  href="https://findingthefamily.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:text-white transition-colors font-semibold"
+                >
+                  Finding the Family
+                </a>{' '}
+                — a nonprofit helping families navigate addiction and find a path to healing. This isn&apos;t a side donation. It&apos;s the reason we show up every day.
+              </p>
+              <p className="text-white/40 text-sm leading-relaxed">
+                10,000+ alignments completed — and every one of them has made a difference beyond the shop floor.
+              </p>
+              <a
+                href="https://findingthefamily.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-8 font-head font-semibold text-sm text-accent border border-accent/40 hover:border-accent hover:bg-accent/10 px-6 py-3 rounded-xl transition-all duration-200"
+              >
+                Learn about Finding the Family ›
+              </a>
+            </div>
+
+            <div className="flex-shrink-0 flex flex-col items-center justify-center bg-white/5 border border-white/10 rounded-2xl px-10 py-10 text-center min-w-[200px]">
+              <div className="font-head font-bold text-6xl text-accent mb-2">10k+</div>
+              <div className="text-white/40 text-xs uppercase tracking-widest font-body mb-6">Alignments completed</div>
+              <div className="w-px h-8 bg-white/10 mb-6" />
+              <div className="font-head font-bold text-2xl text-white mb-1">Families</div>
+              <div className="text-white/40 text-xs uppercase tracking-widest font-body">Supported</div>
+            </div>
+          </div>
+        </AnimateIn>
+      </div>
+    </section>
+  )
+}
+
 /* ── Contact ──────────────────────────────────────────────── */
 function Contact() {
   const hours = [
@@ -490,7 +508,7 @@ function Contact() {
     { day: 'Sunday', hrs: 'Closed' },
   ]
   const info = [
-    { icon: '📍', label: 'ADDRESS', detail: '1234 Frontage Rd\nSpringfield, MO 65804' },
+    { icon: '📍', label: 'ADDRESS', detail: '2305 N Belcrest Ave\nSpringfield, MO 65803' },
     { icon: '📞', label: 'PHONE', detail: '(555) 123-4567' },
     { icon: '✉', label: 'EMAIL', detail: 'service@turningpointalignments.com' },
     { icon: '🕑', label: 'HOURS', detail: 'Mon–Fri 7–6 · Sat 8–2' },
@@ -505,7 +523,7 @@ function Contact() {
               Call Ahead — We&apos;ll Have a Bay Ready.
             </h2>
             <p className="text-ink-2 text-lg mb-2">
-              Schedule before arriving and your truck goes straight on the rack. Most single and tandem jobs complete same-day. Fleet managers: call to arrange staggered bay scheduling for multiple units.
+              Call first and your truck goes straight on the rack — no waiting for a bay to open. Most jobs finish the same day. Fleet managers: call to schedule multiple units.
             </p>
             <p className="text-ink-3 text-sm mb-8">
               Located in Springfield, MO — convenient to I-44, Hwy 417, and Hwy 65.
@@ -568,7 +586,7 @@ function Footer() {
             </p>
             <div className="text-sm space-y-1 text-white/45">
               <div className="font-bold text-white/65">(555) 123-4567</div>
-              <div>1234 Frontage Rd, Springfield, MO 65804</div>
+              <div>2305 N Belcrest Ave, Springfield, MO 65803</div>
               <div>service@turningpointalignments.com</div>
               <div className="text-white/30 text-xs pt-1">I-44 · Hwy 417 · Hwy 65</div>
             </div>
@@ -632,6 +650,7 @@ export default function Home() {
         <Equipment />
         <WhyUs />
         <Stats />
+        <FindingTheFamily />
         <ReviewsCarousel />
         <Contact />
         <FleetForm />

@@ -22,7 +22,7 @@ export default function FleetForm() {
           Run a Fleet?
         </h2>
         <p className="text-white/60 text-lg mb-10 max-w-lg mx-auto">
-          Set up a maintenance schedule, volume pricing, and PO billing. Drop your email and we&apos;ll build a plan around your operation.
+          Volume pricing, scheduled service, and PO billing available. Drop your email and we&apos;ll reach out about your fleet.
         </p>
 
         {submitted ? (

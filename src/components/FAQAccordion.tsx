@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: 'How much does a semi-truck alignment cost?',
-    a: 'Single-axle alignments start at $129. Tandem (2-axle) start at $199. Tri-axle (3-axle) start at $269. Every alignment includes a laser diagnostic printout before and after — no guesswork, no surprises. Call us for your exact rate.',
+    a: 'Single-axle is $165. Tandem (2-axle) is $200. Tri-axle (3-axle) is $285. Flat-rate pricing — every alignment includes a laser diagnostic printout before and after. No surprises.',
   },
   {
     q: 'How long does the alignment take?',
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'What alignment equipment do you use?',
-    a: 'We run Hunter and Bee Line laser alignment systems — the same precision equipment trusted by major fleet operations, calibrated and certified to manufacturer spec. General shops use lighter equipment designed for passenger cars. We don\'t.',
+    a: 'We use a Hunter alignment machine — the same precision equipment trusted by major fleet operations, calibrated and certified to manufacturer spec. General shops use lighter equipment designed for passenger cars. We don\'t.',
   },
   {
     q: 'Where are you located — are you near I-44, Hwy 417, or Hwy 65?',

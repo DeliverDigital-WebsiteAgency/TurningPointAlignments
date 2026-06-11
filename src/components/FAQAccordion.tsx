@@ -24,6 +24,10 @@ const faqs = [
     a: 'We run Hunter and Bee Line laser alignment systems — the same precision equipment trusted by major fleet operations, calibrated and certified to manufacturer spec. General shops use lighter equipment designed for passenger cars. We don\'t.',
   },
   {
+    q: 'Where are you located — are you near I-44, Hwy 417, or Hwy 65?',
+    a: 'Yes — we\'re located in Springfield, MO, conveniently accessible from I-44, Hwy 417, and Hwy 65. Call ahead before pulling in so we can have a bay ready for your rig.',
+  },
+  {
     q: 'Do you work with commercial fleets?',
     a: 'Yes. We offer volume pricing, PO billing, and scheduled maintenance programs for fleet accounts. Drop your email in the section below or call us directly to set up an account.',
   },

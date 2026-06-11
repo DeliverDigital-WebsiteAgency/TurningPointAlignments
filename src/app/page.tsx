@@ -70,7 +70,7 @@ function Divider() {
 /* ── Hero ─────────────────────────────────────────────────── */
 function Hero() {
   return (
-    <section id="top" className="pb-14 pt-24 sm:pt-28 overflow-hidden">
+    <section id="top" className="pb-14 pt-24 sm:pt-32 overflow-hidden">
       <div className="wrap">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.04fr] gap-10 items-center">
 
@@ -490,7 +490,7 @@ function Contact() {
     { day: 'Sunday', hrs: 'Closed' },
   ]
   const info = [
-    { icon: '📍', label: 'ADDRESS', detail: '1234 Frontage Rd\nYour City, ST 00000' },
+    { icon: '📍', label: 'ADDRESS', detail: '1234 Frontage Rd\nSpringfield, MO 65804' },
     { icon: '📞', label: 'PHONE', detail: '(555) 123-4567' },
     { icon: '✉', label: 'EMAIL', detail: 'service@turningpointalignments.com' },
     { icon: '🕑', label: 'HOURS', detail: 'Mon–Fri 7–6 · Sat 8–2' },
@@ -504,8 +504,11 @@ function Contact() {
             <h2 className="font-head text-4xl md:text-5xl font-bold text-ink mb-4">
               Call Ahead — We&apos;ll Have a Bay Ready.
             </h2>
-            <p className="text-ink-2 text-lg mb-8">
+            <p className="text-ink-2 text-lg mb-2">
               Schedule before arriving and your truck goes straight on the rack. Most single and tandem jobs complete same-day. Fleet managers: call to arrange staggered bay scheduling for multiple units.
+            </p>
+            <p className="text-ink-3 text-sm mb-8">
+              Located in Springfield, MO — convenient to I-44, Hwy 417, and Hwy 65.
             </p>
 
             <div className="mb-8 border border-line rounded-xl overflow-hidden">
@@ -558,15 +561,16 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
           <div>
             <div className="mb-4">
-              <Image src="/logo.png" alt="Turning Point Alignments" width={56} height={56} className="w-14 h-14 object-contain" />
+              <Image src="/logo.png" alt="Turning Point Alignments" width={72} height={72} className="w-[68px] h-[68px] object-contain" />
             </div>
             <p className="text-white/45 text-sm leading-relaxed mb-4 max-w-xs">
               Semi-truck wheel alignment specialists. One focus, done right — 1, 2 &amp; 3-axle rigs, trailers, and fleets.
             </p>
             <div className="text-sm space-y-1 text-white/45">
               <div className="font-bold text-white/65">(555) 123-4567</div>
-              <div>1234 Frontage Rd, Your City, ST</div>
+              <div>1234 Frontage Rd, Springfield, MO 65804</div>
               <div>service@turningpointalignments.com</div>
+              <div className="text-white/30 text-xs pt-1">I-44 · Hwy 417 · Hwy 65</div>
             </div>
           </div>
 

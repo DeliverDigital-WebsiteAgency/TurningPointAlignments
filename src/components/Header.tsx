@@ -38,10 +38,10 @@ export default function Header() {
         }`}
       >
         <div className="wrap flex items-center justify-between h-9">
-          <span>Mon–Fri 7:00a–6:00p · Sat 8:00a–2:00p</span>
+          <span>Mon–Fri 9:00a–5:30p</span>
           <div className="flex items-center gap-5">
-            <span className="hidden md:inline">Springfield, MO &nbsp;·&nbsp; I-44 &nbsp;·&nbsp; Hwy 417 &nbsp;·&nbsp; Hwy 65</span>
-            <span className="font-semibold">(555) 123-4567</span>
+            <span className="hidden md:inline">Springfield, MO &nbsp;·&nbsp; I-44 &nbsp;·&nbsp; Hwy 65</span>
+            <span className="font-semibold">(417) 209-5846</span>
           </div>
         </div>
       </div>
@@ -77,9 +77,9 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-3 lg:gap-4 flex-shrink-0">
             <div className="text-right hidden lg:block">
               <div className="text-ink-3 text-xs leading-none mb-0.5">Call Now</div>
-              <div className="text-ink font-head font-bold text-sm">(555) 123-4567</div>
+              <div className="text-ink font-head font-bold text-sm">(417) 209-5846</div>
             </div>
-            <a href="tel:5551234567" className="btn-primary py-3 px-5 text-xs">
+            <a href="tel:4172095846" className="btn-primary py-3 px-5 text-xs">
               Call ›
             </a>
           </div>
@@ -130,11 +130,11 @@ export default function Header() {
           ))}
           <div className="pt-4">
             <a
-              href="tel:5551234567"
+              href="tel:4172095846"
               className="btn-primary w-full justify-center text-sm"
               onClick={() => setMenuOpen(false)}
             >
-              Call (555) 123-4567 ›
+              Call (417) 209-5846 ›
             </a>
           </div>
         </nav>

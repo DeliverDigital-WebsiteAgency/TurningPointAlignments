@@ -13,7 +13,7 @@ export default function FleetForm() {
   }
 
   return (
-    <section className="bg-brand-blue py-20">
+    <section id="fleet" className="bg-brand-blue py-20">
       <div className="wrap max-w-2xl mx-auto text-center">
         <span className="font-head font-semibold text-xs tracking-[0.18em] uppercase text-white/50">
           Fleet Services
@@ -28,7 +28,7 @@ export default function FleetForm() {
         {submitted ? (
           <div className="bg-white/10 border border-white/20 rounded-2xl px-8 py-8 text-white">
             <div className="text-4xl mb-3">✓</div>
-            <p className="font-head font-bold text-xl">Thanks — we&apos;ll be in touch.</p>
+            <p className="font-head font-bold text-xl">Thanks, we&apos;ll be in touch.</p>
             <p className="text-white/50 mt-2 text-sm">Expect a call from our fleet desk within 1 business day.</p>
           </div>
         ) : (
@@ -49,7 +49,7 @@ export default function FleetForm() {
 
         <p className="text-white/35 text-sm mt-6">
           Prefer to talk now? Call{' '}
-          <strong className="text-white/60">(555) 123-4567</strong> and ask for the fleet desk.
+          <strong className="text-white/60">(417) 209-5846</strong> and ask for the fleet desk.
         </p>
       </div>
     </section>

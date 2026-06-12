@@ -5,11 +5,11 @@ import { useState } from 'react'
 const faqs = [
   {
     q: 'Do I need to call before bringing my truck in?',
-    a: 'Yes — call ahead before arriving. We schedule alignment appointments so a bay and certified technician are ready when you pull in. Most single and tandem slots are available same-day or next-day.',
+    a: 'Yes, call ahead before arriving. We schedule alignment appointments so a bay and certified technician are ready when you pull in. Most single and tandem slots are available same-day or next-day.',
   },
   {
     q: 'How much does a semi-truck alignment cost?',
-    a: 'Single-axle is $165. Tandem (2-axle) is $200. Tri-axle (3-axle) is $285. Flat-rate pricing — every alignment includes a laser diagnostic printout before and after. No surprises.',
+    a: 'Single-axle is $165. Tandem (2-axle) is $200. Tri-axle (3-axle) is $285. Flat-rate pricing. Every alignment includes a laser diagnostic printout before and after. No surprises.',
   },
   {
     q: 'How long does the alignment take?',
@@ -17,15 +17,15 @@ const faqs = [
   },
   {
     q: 'How often should a semi-truck be aligned?',
-    a: 'Most fleets check alignment every 50,000–100,000 miles or after any suspension work, hard curb impact, or tire replacement. If you\'re seeing uneven tire wear, a pull to one side, or the steering wheel is off-center — don\'t wait for the mileage mark.',
+    a: 'Most fleets check alignment every 50,000–100,000 miles or after any suspension work, hard curb impact, or tire replacement. If you\'re seeing uneven tire wear, a pull to one side, or the steering wheel is off-center, don\'t wait for the mileage mark.',
   },
   {
     q: 'What alignment equipment do you use?',
-    a: 'We use a Hunter alignment machine — the same precision equipment trusted by major fleet operations, calibrated and certified to manufacturer spec. General shops use lighter equipment designed for passenger cars. We don\'t.',
+    a: 'We use a Hunter alignment machine, calibrated and certified to manufacturer spec. General shops use lighter equipment designed for passenger cars. We don\'t.',
   },
   {
-    q: 'Where are you located — are you near I-44, Hwy 417, or Hwy 65?',
-    a: 'Yes — we\'re located in Springfield, MO, conveniently accessible from I-44, Hwy 417, and Hwy 65. Call ahead before pulling in so we can have a bay ready for your rig.',
+    q: 'Where are you located? Are you near I-44 or Hwy 65?',
+    a: 'We\'re located at 2305 N Belcrest Ave in Springfield, MO, accessible from I-44 and Hwy 65. Call ahead before pulling in so we can have a bay ready for your rig.',
   },
   {
     q: 'Do you work with commercial fleets?',

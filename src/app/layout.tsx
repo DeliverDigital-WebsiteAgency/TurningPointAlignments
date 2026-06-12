@@ -17,26 +17,28 @@ const barlow = Barlow({
 })
 
 export const metadata: Metadata = {
-  title: 'Turning Point Alignments | Truck Alignment Springfield MO',
+  title: 'Commercial Truck Alignment Springfield MO | Turning Point Alignments',
   description:
-    'Semi-truck wheel alignment specialists in Springfield, MO. Serving I-44, Hwy 417 & Hwy 65 corridors. Laser-guided, 1–3 axle rigs. Call to schedule.',
+    'Commercial truck and trailer wheel alignment in Springfield, MO. Semi-trucks, heavy-duty rigs, 1 to 3 axles. Hunter machine, 20+ years, 10,000 alignments. Serving I-44. Call to schedule.',
   keywords:
-    'semi truck wheel alignment Springfield MO, truck alignment I-44 Missouri, wheel alignment Hwy 417, wheel alignment Hwy 65, commercial truck alignment Springfield Missouri, fleet alignment Springfield MO, heavy duty truck alignment Missouri, 18 wheeler alignment Springfield',
+    'commercial wheel alignment Springfield MO, commercial truck alignment Missouri, semi truck wheel alignment Springfield MO, commercial vehicles alignment Springfield, trucks and trailers alignment Springfield MO, truck alignment I-44 Missouri, heavy duty truck alignment Missouri, fleet alignment Springfield MO, 18 wheeler alignment Springfield, wheel alignment Hwy 65',
   metadataBase: new URL('https://turningpointalignments.com'),
   alternates: { canonical: '/' },
+  icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
   openGraph: {
-    title: 'Turning Point Alignments | Truck Alignment Springfield MO',
+    title: 'Commercial Truck Alignment Springfield MO | Turning Point Alignments',
     description:
-      'Semi-truck wheel alignment in Springfield, MO — I-44, Hwy 417 & Hwy 65. Laser-guided, 1–3 axle rigs. 25+ years. Call to schedule.',
+      'Commercial truck and trailer wheel alignment in Springfield, MO. Semi-trucks, heavy-duty rigs, 1 to 3 axles. Hunter machine, 20+ years. Serving I-44.',
     type: 'website',
     url: 'https://turningpointalignments.com',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Turning Point Alignments — Semi-Truck Wheel Alignment Springfield MO' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Turning Point Alignments · Commercial Truck Alignment Springfield MO' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Turning Point Alignments | Truck Alignment Springfield MO',
-    description: 'Semi-truck wheel alignment in Springfield, MO. I-44, Hwy 417 & Hwy 65. Call to schedule.',
-    images: ['/og-image.jpg'],
+    title: 'Commercial Truck Alignment Springfield MO | Turning Point Alignments',
+    description:
+      'Commercial truck and trailer wheel alignment in Springfield, MO. Semi-trucks, heavy-duty rigs, 1 to 3 axles. Hunter machine, 20+ years. Serving I-44.',
+    images: ['/og-image.png'],
   },
 }
 

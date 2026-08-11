@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const services = [
   'Single Axle ($165)',
-  'Tandem 2-Axle ($200)',
+  'Tandem 2-Axle ($210)',
   'Tri-Axle ($285)',
   'Tractor + Trailer',
   'Steer Axle & Caster',

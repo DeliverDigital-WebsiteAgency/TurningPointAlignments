@@ -2,14 +2,27 @@
 
 import { useState } from 'react'
 
+type Status = 'idle' | 'sending' | 'success' | 'error'
+
 export default function FleetForm() {
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
   const [email, setEmail] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setEmail('')
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/fleet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      if (!res.ok) throw new Error()
+      setStatus('success')
+      setEmail('')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -25,7 +38,7 @@ export default function FleetForm() {
           Volume pricing, scheduled service, and PO billing available. Drop your email and we&apos;ll reach out about your fleet.
         </p>
 
-        {submitted ? (
+        {status === 'success' ? (
           <div className="bg-white/10 border border-white/20 rounded-2xl px-8 py-8 text-white">
             <div className="text-4xl mb-3">✓</div>
             <p className="font-head font-bold text-xl">Thanks, we&apos;ll be in touch.</p>
@@ -41,10 +54,14 @@ export default function FleetForm() {
               onChange={(e) => setEmail(e.target.value)}
               className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/35 rounded-xl px-5 py-4 text-sm focus:outline-none focus:border-white/60 transition-colors"
             />
-            <button type="submit" className="btn-primary whitespace-nowrap">
-              Get Fleet Pricing ›
+            <button type="submit" disabled={status === 'sending'} className="btn-primary whitespace-nowrap disabled:opacity-60">
+              {status === 'sending' ? 'Sending...' : 'Get Fleet Pricing ›'}
             </button>
           </form>
+        )}
+
+        {status === 'error' && (
+          <p className="text-white/70 text-sm mt-4">Something went wrong. Please call us directly at (417) 209-5846.</p>
         )}
 
         <p className="text-white/35 text-sm mt-6">

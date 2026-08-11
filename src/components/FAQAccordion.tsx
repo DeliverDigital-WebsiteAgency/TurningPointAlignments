@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: 'How much does a semi-truck alignment cost?',
-    a: 'Single-axle is $165. Tandem (2-axle) is $200. Tri-axle (3-axle) is $285. Flat-rate pricing. Every alignment includes a laser diagnostic printout before and after. No surprises.',
+    a: 'Single-axle is $165. Tandem (2-axle) is $210. Tri-axle (3-axle) is $285. Flat-rate pricing. Every alignment includes a laser diagnostic printout before and after. No surprises.',
   },
   {
     q: 'How long does the alignment take?',
@@ -52,20 +52,22 @@ export default function FAQAccordion() {
                   isOpen ? 'border-accent' : 'border-line'
                 }`}
               >
-                <button
-                  className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                >
-                  <span className="font-head font-bold text-ink text-base md:text-lg">{faq.q}</span>
-                  <span
-                    className={`text-accent text-2xl font-bold flex-shrink-0 leading-none transition-transform duration-200 ${
-                      isOpen ? 'rotate-45' : ''
-                    }`}
+                <h3 className="m-0">
+                  <button
+                    className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
                   >
-                    +
-                  </span>
-                </button>
+                    <span className="font-head font-bold text-ink text-base md:text-lg">{faq.q}</span>
+                    <span
+                      className={`text-accent text-2xl font-bold flex-shrink-0 leading-none transition-transform duration-200 ${
+                        isOpen ? 'rotate-45' : ''
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+                </h3>
                 <div
                   className={`grid transition-all duration-300 ${
                     isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'

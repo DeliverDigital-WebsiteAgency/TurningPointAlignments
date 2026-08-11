@@ -5,7 +5,9 @@
       "Skill(update-config:*)",
       "PowerShell(Rename-Item -Path \"c:\\\\Users\\\\Koleman Leaders.chur\\\\Documents\\\\websites\\\\TurningPointAlignments\\\\public\\\\favicon \\(1\\).png\" -NewName \"favicon.png\")",
       "WebFetch(domain:semialignments.com)",
-      "WebFetch(domain:turningpointalignments.com)"
+      "WebFetch(domain:turningpointalignments.com)",
+      "PowerShell(git commit -F \"C:\\\\Users\\\\KOLEMA~1.CHU\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Koleman-Leaders-chur-Documents-websites-TurningPointAlignments\\\\a786ef76-8206-4af7-ac06-604f11bdaf49\\\\scratchpad\\\\commit-msg.txt\")",
+      "PowerShell(git push origin main)"
     ]
   }
 }

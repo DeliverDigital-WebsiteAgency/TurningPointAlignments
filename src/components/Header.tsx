@@ -50,10 +50,10 @@ export default function Header() {
       <div className={`bg-white border-b border-line transition-shadow duration-300 ${scrolled ? 'shadow-md' : ''}`}>
         <div className="wrap flex items-center justify-between h-24">
           {/* Logo */}
-          <Link href="/" aria-label="Semi Alignments home" className="flex-shrink-0">
+          <Link href="/" aria-label="Turning Point Alignments home" className="flex-shrink-0">
             <Image
               src="/logo.png"
-              alt="Semi Alignments"
+              alt="Turning Point Alignments"
               width={96}
               height={96}
               className="w-[88px] h-[88px] object-contain"

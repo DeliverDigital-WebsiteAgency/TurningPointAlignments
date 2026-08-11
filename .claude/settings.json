@@ -3,7 +3,9 @@
     "allow": [
       "Skill(update-config)",
       "Skill(update-config:*)",
-      "PowerShell(Rename-Item -Path \"c:\\\\Users\\\\Koleman Leaders.chur\\\\Documents\\\\websites\\\\TurningPointAlignments\\\\public\\\\favicon \\(1\\).png\" -NewName \"favicon.png\")"
+      "PowerShell(Rename-Item -Path \"c:\\\\Users\\\\Koleman Leaders.chur\\\\Documents\\\\websites\\\\TurningPointAlignments\\\\public\\\\favicon \\(1\\).png\" -NewName \"favicon.png\")",
+      "WebFetch(domain:semialignments.com)",
+      "WebFetch(domain:turningpointalignments.com)"
     ]
   }
 }

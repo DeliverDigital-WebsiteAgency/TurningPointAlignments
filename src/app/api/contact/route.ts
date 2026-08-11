@@ -14,8 +14,8 @@ export async function POST(req: NextRequest) {
   // const sgMail = require('@sendgrid/mail')
   // sgMail.setApiKey(process.env.SENDGRID_API_KEY)
   // await sgMail.send({
-  //   to: 'service@turningpointalignments.com',
-  //   from: 'noreply@turningpointalignments.com',
+  //   to: 'service@semialignments.com',
+  //   from: 'noreply@semialignments.com',
   //   subject: `New inquiry from ${name}`,
   //   text: `Name: ${name}\nPhone: ${phone}\nCompany: ${company}\nService: ${service}\n\n${message}`,
   // })

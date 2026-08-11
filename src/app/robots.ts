@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://turningpointalignments.com/sitemap.xml',
+    sitemap: 'https://semialignments.com/sitemap.xml',
   }
 }

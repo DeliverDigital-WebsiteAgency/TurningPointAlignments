@@ -9,10 +9,10 @@ import ContactForm from '@/components/ContactForm'
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'AutoRepair',
-  name: 'Turning Point Alignments',
+  name: 'Semi Alignments',
   description:
     'Semi-truck and heavy-duty truck wheel alignment specialists. Laser-guided alignments for steer axle, 2-axle, and 3-axle trucks, school buses, and fleets.',
-  url: 'https://turningpointalignments.com',
+  url: 'https://semialignments.com',
   telephone: '+14172095846',
   address: {
     '@type': 'PostalAddress',
@@ -77,12 +77,12 @@ function Hero() {
             <span className="section-eyebrow">Springfield, MO · Semi-Truck & Heavy-Duty Truck Alignment Specialists</span>
 
             <h1 className="font-head text-[clamp(34px,4.6vw,58px)] font-bold text-ink leading-[1.04] mt-4">
-              Turning Point Alignments —{' '}
+              Semi Alignments —{' '}
               <span className="text-accent">Precision for Every Axle</span>
             </h1>
 
             <p className="text-ink-2 text-lg leading-relaxed max-w-[480px] mt-5">
-              At Turning Point Alignments, we've completed over 10,000 heavy-duty truck alignments in 20-plus years in Springfield, MO. Hunter alignment machine on every job. Printed before-and-after diagnostic on every truck. Steer axle, two-axle, and three-axle semis and school buses. Appointments within 2 business days. Call to schedule.
+              At Semi Alignments, we've completed over 10,000 heavy-duty truck alignments in 20-plus years in Springfield, MO. Hunter alignment machine on every job. Printed before-and-after diagnostic on every truck. Steer axle, two-axle, and three-axle semis and school buses. Appointments within 2 business days. Call to schedule.
             </p>
 
             <div className="flex flex-wrap gap-3.5 items-center mt-8">
@@ -175,10 +175,10 @@ function Services() {
         <AnimateIn>
           <div className="text-center mb-14">
             <h2 className="font-head text-4xl md:text-5xl font-bold text-ink mb-4">
-              What We Align at Turning Point Alignments
+              What We Align at Semi Alignments
             </h2>
             <p className="text-ink-2 max-w-xl mx-auto text-lg leading-relaxed">
-              Turning Point Alignments works on heavy-duty trucks only — no passenger cars, no light trucks. Hunter alignment machine on every job.
+              Semi Alignments works on heavy-duty trucks only — no passenger cars, no light trucks. Hunter alignment machine on every job.
             </p>
           </div>
         </AnimateIn>
@@ -263,7 +263,7 @@ function Pricing() {
               Straightforward Pricing
             </h2>
             <p className="text-ink-2 max-w-xl mx-auto text-lg leading-relaxed">
-              Flat-rate pricing by axle count. Every alignment at Turning Point Alignments includes a full diagnostic readout before and after the job.
+              Flat-rate pricing by axle count. Every alignment at Semi Alignments includes a full diagnostic readout before and after the job.
             </p>
           </div>
         </AnimateIn>
@@ -391,7 +391,7 @@ function TiresNearby() {
                 Ozarko Tire Is Right Next Door
               </h3>
               <p className="text-ink-2 text-base leading-relaxed">
-                After your alignment at Turning Point Alignments, tires are available right next door at Ozarko Tire Centers — 2301 N Belcrest Ave. Get your truck aligned, then roll straight to new rubber.
+                After your alignment at Semi Alignments, tires are available right next door at Ozarko Tire Centers — 2301 N Belcrest Ave. Get your truck aligned, then roll straight to new rubber.
               </p>
             </div>
             <a
@@ -427,7 +427,7 @@ function WhyUs() {
               <span className="text-accent">One Thing</span> Well.
             </h2>
             <p className="text-ink-2 text-lg leading-relaxed mb-8">
-              General shops align passenger cars. Turning Point Alignments aligns semi-trucks. Our technicians know what uneven tire wear, thrust-angle drift, and caster pull look like on a heavy truck, because that is all they work on.
+              General shops align passenger cars. Semi Alignments aligns semi-trucks. Our technicians know what uneven tire wear, thrust-angle drift, and caster pull look like on a heavy truck, because that is all they work on.
             </p>
             <div className="space-y-4 mb-10">
               {points.map((p) => (
@@ -535,7 +535,7 @@ function FindingTheFamily() {
                 <span className="text-[#4d7a6c]">Families in Recovery</span>
               </h2>
               <p className="text-ink-2 text-lg leading-relaxed mb-4">
-                When you bring your truck to Turning Point Alignments, your service directly funds{' '}
+                When you bring your truck to Semi Alignments, your service directly funds{' '}
                 <a
                   href="https://findingthefamily.org"
                   target="_blank"
@@ -588,7 +588,7 @@ function Contact() {
               Call Ahead. We&apos;ll Have a Bay Ready.
             </h2>
             <p className="text-ink-2 text-lg mb-2">
-              Call first and your truck goes straight on the rack at Turning Point Alignments. No waiting for a bay to open. Most jobs finish the same day. Fleet managers: call to schedule multiple units.
+              Call first and your truck goes straight on the rack at Semi Alignments. No waiting for a bay to open. Most jobs finish the same day. Fleet managers: call to schedule multiple units.
             </p>
             <p className="text-ink-3 text-sm mb-8">
               Located in Springfield, MO. Convenient to I-44 and Hwy 65.
@@ -646,15 +646,15 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
           <div>
             <div className="mb-4">
-              <Image src="/logo.png" alt="Turning Point Alignments" width={96} height={96} className="w-[84px] h-[84px] object-contain" />
+              <Image src="/logo.png" alt="Semi Alignments" width={96} height={96} className="w-[84px] h-[84px] object-contain" />
             </div>
             <p className="text-white/45 text-sm leading-relaxed mb-4 max-w-xs">
-              Turning Point Alignments — semi-truck and heavy-duty truck wheel alignment specialists. Steer axle, 2-axle, and 3-axle trucks, school buses, and fleets.
+              Semi Alignments — semi-truck and heavy-duty truck wheel alignment specialists. Steer axle, 2-axle, and 3-axle trucks, school buses, and fleets.
             </p>
             <div className="text-sm space-y-1 text-white/45">
               <div className="font-bold text-white/65">(417) 209-5846</div>
               <div>2305 N Belcrest Ave, Springfield, MO 65803</div>
-              <div>service@turningpointalignments.com</div>
+              <div>service@semialignments.com</div>
               <div className="text-white/30 text-xs pt-1">I-44 · Hwy 65</div>
             </div>
           </div>
@@ -673,8 +673,8 @@ function Footer() {
             <ul className="space-y-2.5 text-sm text-white/55">
               {[
                 { label: 'About Us', href: '#whyus' },
-                { label: 'Why Turning Point Alignments', href: '#whyus' },
-                { label: 'Fleet Services', href: '#fleet' },
+                { label: 'Why Semi Alignments', href: '#whyus' },
+                { label: 'Fleet Services', href: '#contact' },
                 { label: 'Contact Us', href: '#contact' },
               ].map(({ label, href }) => (
                 <li key={label}><a href={href} className="hover:text-accent transition-colors">{label}</a></li>
@@ -684,7 +684,7 @@ function Footer() {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/25">
-          <p>© {new Date().getFullYear()} Turning Point Alignments. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Semi Alignments. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-5">
             <a
               href="https://deliverdigital.net"

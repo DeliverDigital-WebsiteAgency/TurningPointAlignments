@@ -7,6 +7,12 @@ const nextConfig = {
         destination: 'https://giowm1254.siteground.biz/webmail/mail/',
         permanent: false,
       },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.semialignments.com' }],
+        destination: 'https://semialignments.com/:path*',
+        permanent: true,
+      },
     ]
   },
   images: {

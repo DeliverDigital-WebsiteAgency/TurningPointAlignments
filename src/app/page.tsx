@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Header from '@/components/Header'
-import ReviewsCarousel from '@/components/ReviewsCarousel'
 import FleetForm from '@/components/FleetForm'
 import FAQAccordion from '@/components/FAQAccordion'
 import AnimateIn from '@/components/AnimateIn'
 import ContactForm from '@/components/ContactForm'
+import { faqs } from '@/lib/faqs'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -43,16 +43,16 @@ const jsonLd = {
   },
 }
 
+// Built from the same `faqs` data the visible FAQAccordion renders, so the
+// FAQPage schema always matches on-page content exactly (Google requires this).
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'Do I need to call before bringing my truck in?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, call ahead before arriving. We schedule alignment appointments so a bay and certified technician are ready when you pull in.' } },
-    { '@type': 'Question', name: 'How much does a semi-truck alignment cost?', acceptedAnswer: { '@type': 'Answer', text: 'Steer axle alignment is $165. Two-axle trucks (box trucks and delivery trucks) are $210. Three-axle semis are $285. Flat-rate pricing. Every alignment includes a laser diagnostic printout before and after.' } },
-    { '@type': 'Question', name: 'How long does a semi-truck wheel alignment take?', acceptedAnswer: { '@type': 'Answer', text: 'Most alignments complete in 90 minutes or less. You receive a printed before/after readout for every job.' } },
-    { '@type': 'Question', name: 'How often should a semi-truck be aligned?', acceptedAnswer: { '@type': 'Answer', text: 'Most fleets check alignment every 50,000–100,000 miles or after suspension work, a hard impact, or tire replacement.' } },
-    { '@type': 'Question', name: 'What equipment do you use for truck alignments?', acceptedAnswer: { '@type': 'Answer', text: 'We use a Hunter alignment machine, calibrated and certified to manufacturer spec.' } },
-  ],
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
 }
 
 /* ── Divider ──────────────────────────────────────────────── */
@@ -85,7 +85,7 @@ function Hero() {
             </h1>
 
             <p className="text-ink-2 text-lg leading-relaxed max-w-[480px] mt-5">
-              At Turning Point Alignments, we've completed over 10,000 heavy-duty truck alignments in 20-plus years in Springfield, MO. Hunter alignment machine on every job. Printed before-and-after diagnostic on every truck. Steer axle, two-axle, and three-axle semis and school buses. Appointments within 2 business days. Call to schedule.
+              At Turning Point Alignments, we&apos;ve completed over 10,000 heavy-duty truck alignments in 20-plus years in Springfield, MO. Hunter alignment machine on every job. Printed before-and-after diagnostic on every truck. Steer axle, two-axle, and three-axle semis and school buses. Appointments within 2 business days. Call to schedule.
             </p>
 
             <div className="flex flex-wrap gap-3.5 items-center mt-8">
@@ -195,7 +195,7 @@ function Services() {
                     {s.badge}
                   </span>
                 )}
-                <h4 className="font-head font-bold text-lg text-ink mb-2">{s.title}</h4>
+                <h3 className="font-head font-bold text-lg text-ink mb-2">{s.title}</h3>
                 <p className="text-ink-2 text-sm leading-relaxed">{s.desc}</p>
                 {s.sub && (
                   <p className="text-accent text-xs font-semibold mt-3">↳ {s.sub}</p>
@@ -455,7 +455,7 @@ function WhyUs() {
           <div className="relative rounded-2xl overflow-hidden h-80 lg:h-[460px]">
             <Image
               src="https://images.unsplash.com/photo-1616432043562-3671ea2e5242?auto=format&fit=crop&w=800&q=80"
-              alt="White freight semi-truck"
+              alt="Semi-truck on the highway after wheel alignment service at Turning Point Alignments in Springfield, MO"
               fill
               className="object-cover"
             />
@@ -663,7 +663,7 @@ function Footer() {
           </div>
 
           <div>
-            <h5 className="font-head font-bold text-xs uppercase tracking-widest mb-5 text-white/35">Services</h5>
+            <h4 className="font-head font-bold text-xs uppercase tracking-widest mb-5 text-white/35">Services</h4>
             <ul className="space-y-2.5 text-sm text-white/55">
               {['Steer Axle Alignment', 'Two-Axle Alignment', 'Three-Axle Alignment', 'School Bus Alignment', 'Suspension Inspection'].map((s) => (
                 <li key={s}><a href="#pricing" className="hover:text-accent transition-colors">{s}</a></li>
@@ -672,7 +672,7 @@ function Footer() {
           </div>
 
           <div>
-            <h5 className="font-head font-bold text-xs uppercase tracking-widest mb-5 text-white/35">Company</h5>
+            <h4 className="font-head font-bold text-xs uppercase tracking-widest mb-5 text-white/35">Company</h4>
             <ul className="space-y-2.5 text-sm text-white/55">
               {[
                 { label: 'About Us', href: '#whyus' },
@@ -726,7 +726,6 @@ export default function Home() {
         <WhyUs />
         <Stats />
         <FindingTheFamily />
-        <ReviewsCarousel />
         <Contact />
         <FleetForm />
         <FAQAccordion />

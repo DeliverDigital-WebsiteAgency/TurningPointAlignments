@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import sgMail from '@sendgrid/mail'
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
@@ -8,19 +9,26 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'A valid work email is required.' }, { status: 400 })
   }
 
-  // TODO: add SendGrid key to .env.local as SENDGRID_API_KEY
-  // and uncomment the block below when ready
-  //
-  // const sgMail = require('@sendgrid/mail')
-  // sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-  // await sgMail.send({
-  //   to: 'service@semialignments.com',
-  //   from: 'noreply@semialignments.com',
-  //   subject: 'New fleet inquiry',
-  //   text: `Fleet inquiry email: ${email}`,
-  // })
+  // SENDGRID_API_KEY is set in SiteGround Site Tools > Node.js > Environment Variables
+  const apiKey = process.env.SENDGRID_API_KEY
+  if (!apiKey) {
+    console.error('SENDGRID_API_KEY is not set')
+    return NextResponse.json({ error: 'Email is not configured.' }, { status: 500 })
+  }
 
-  console.log('Fleet form submission:', { email })
+  sgMail.setApiKey(apiKey)
+  try {
+    await sgMail.send({
+      to: 'service@semialignments.com',
+      from: { email: 'noreply@semialignments.com', name: 'Turning Point Alignments' },
+      replyTo: email,
+      subject: 'New fleet inquiry',
+      text: `Fleet inquiry email: ${email}`,
+    })
+  } catch (err) {
+    console.error('SendGrid fleet send failed:', err)
+    return NextResponse.json({ error: 'Could not send message.' }, { status: 500 })
+  }
 
   return NextResponse.json({ success: true })
 }

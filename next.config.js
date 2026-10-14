@@ -7,15 +7,12 @@ const nextConfig = {
         destination: 'https://giowm1254.siteground.biz/webmail/mail/',
         permanent: false,
       },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.semialignments.com' }],
-        destination: 'https://semialignments.com/:path*',
-        permanent: true,
-      },
     ]
   },
   images: {
+    // SiteGround's firewall returns 403 for /_next/image, so serve images directly.
+    // Local assets are small and Unsplash URLs already carry w/q/format params.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
